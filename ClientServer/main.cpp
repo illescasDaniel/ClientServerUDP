@@ -8,8 +8,6 @@
 #include "Client.hpp"
 #include "Server.hpp"
 
-#include <vector>
-
 int main(int argc, char* argv[]) {
 	
 	// Default values
@@ -27,14 +25,16 @@ int main(int argc, char* argv[]) {
 	}
 	
 	Client client(IP, port);
-	Server server(IP, port, bufferSize);
+	Server server(port, bufferSize);
 	
-	RunnableAdapter<Client> clientRunnable (client, &Client::sendMessage);
+	RunnableAdapter<Client> clientRunnable (client, &Client::sendMessages);
 	RunnableAdapter<Server> serverRunnable (server, &Server::receiveMessages);
 	
 	Thread clientThread, serverThread;
 	clientThread.start(clientRunnable);
 	serverThread.start(serverRunnable);
+	
+	// Client::sendMessage(IP, port, "hello!!");
 	
 	clientThread.join();
 	serverThread.join();

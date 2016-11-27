@@ -7,37 +7,47 @@ using namespace std;
 using namespace Poco;
 using namespace Poco::Net;
 
-class Client {
+struct Client {
 	
-	IPAddress IP;
-	UInt16 port;
+	SocketAddress socket;
 	
-public:
-	
-	Client(): IP("127.0.0.1"), port(10000) { }
+	// By default the client connects to itself {remove}?
+	Client() { socket = SocketAddress("127.0.0.1", 10000); } // SocketAddress("127.0.0.1", 10000);
 	
 	Client(const IPAddress& IP, const UInt16& port) {
-		this->IP = IP;
-		this->port = port;
+		socket = SocketAddress(IP, port);
 	}
 	
-	void sendMessage() {
+	void sendMessages() {
 		
-		bool connected = true;
+		DatagramSocket datagram;
+		datagram.connect(socket);
+		string message;
+		
+		while (!datagram.available()) {
+		
+			getline(cin, message);
+			
+			datagram.sendBytes(message.data(), int(message.size()));
+			
+			if (message == "\\end") {
+				datagram.close();
+			}
+		}
+	}
+	
+	string IP() {
+		return socket.host().toString();
+	}
+
+	UInt16 port() {
+		return socket.port();
+	}
+	
+	static void sendMessage(const IPAddress& IP, const UInt16& port, const string& message) {
 		SocketAddress socket(IP, port);
 		DatagramSocket datagram;
 		datagram.connect(socket);
-		
-		string message;
-		
-		while (connected) {
-			
-			getline(cin, message);
-			
-			if (message == "\\end") {
-				connected = false;
-			}
-			datagram.sendBytes(message.data(), int(message.size()));
-		}
+		datagram.sendBytes(message.data(), int(message.size()));
 	}
 };

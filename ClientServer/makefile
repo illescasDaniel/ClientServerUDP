@@ -1,6 +1,6 @@
 ## FLAGS ##
-Libraries = -lPocoNet -lPocoFoundation -L /usr/local/lib
-Headers = -I /usr/local/include
+Libraries = -L /usr/local/lib -lPocoNet -lPocoFoundation
+Headers = -I /usr/local/include -I .
 Sources = main.cpp $(Headers) $(Libraries)
 CompilerFlags = -O3 -Wno-deprecated
 OutputName = ClientServer

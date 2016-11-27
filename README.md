@@ -1,18 +1,16 @@
-# Client Server
+# Client Server UDP
 
-Simple client-server program using POCO C++ libraries (https://pocoproject.org)
+Simple UDP client-server program using POCO C++ libraries (https://pocoproject.org)
 
 
-Client class
+Client struct
 -----
 ```c++
 
-class Client {
+struct Client {
 
 	IPAddress IP;
 	UInt16 port;
-
-public:
 
 	Client(): IP("127.0.0.1"), port(10000) { }
 
@@ -20,21 +18,22 @@ public:
 
 	// Receive user input and send it to the server
 	void sendMessage() { /* ... */ }
+
+	// Send a message to a server
+	static void sendMessage(const IPAddress& IP, const UInt16& port, const string& message) { /* ... */}
 };
 
 ```
 
-Server class
+Server struct
 -----
 ```c++
 
-class Server {
+struct Server {
 
 	IPAddress IP;
 	UInt16 port;
 	int bufferSize;
-
-public:
 
 	static bool debugModeEnabled;
 
