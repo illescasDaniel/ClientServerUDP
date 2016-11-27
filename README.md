@@ -52,26 +52,6 @@ public:
 
 ```
 
-
-How to use
-------
-
-```c++
-
-// Run client
-Client daniel(IP, port);
-thread clientThread(daniel.sendMessageThread());
-
-// Run Server
-Server myServer(IP, port, bufferSize);
-thread serverThread(myServer.receiveMessagesThread());
-
-// Join threads
-clientThread.join();
-serverThread.join();
-
-```
-
 How to compile
 -----
 
