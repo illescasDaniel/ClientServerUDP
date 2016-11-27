@@ -11,7 +11,6 @@ struct Server {
 	
 	int bufferSize;
 	SocketAddress socket;
-	
 	static bool debugModeEnabled;
 	
 	Server(): bufferSize(1024) { socket = SocketAddress(10000); }

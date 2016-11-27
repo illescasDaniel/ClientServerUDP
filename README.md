@@ -9,15 +9,14 @@ Client struct
 
 struct Client {
 
-	IPAddress IP;
-	UInt16 port;
+	SocketAddress socket;
 
-	Client(): IP("127.0.0.1"), port(10000) { }
+	Client() { socket = SocketAddress("127.0.0.1", 10000); }
 
 	Client(const IPAddress& IP, const UInt16& port) { /* ... */ }
 
 	// Receive user input and send it to the server
-	void sendMessage() { /* ... */ }
+	void sendMessages() { /* ... */ }
 
 	// Send a message to a server
 	static void sendMessage(const IPAddress& IP, const UInt16& port, const string& message) { /* ... */}
@@ -31,15 +30,13 @@ Server struct
 
 struct Server {
 
-	IPAddress IP;
-	UInt16 port;
-	int bufferSize;
+int bufferSize;
+SocketAddress socket;
+static bool debugModeEnabled;
 
-	static bool debugModeEnabled;
+	Server(): bufferSize(1024) { socket = SocketAddress(10000); }
 
-	Server(): IP("127.0.0.1"), port(10000), bufferSize(1024) { }
-
-	Server(const IPAddress& IP, const UInt16& port, const int& bufferSize) { /* ... */ }
+	Server(const UInt16& port, const int& bufferSize) { /* ... */ }
 
 	// Display messages sent by user/s
 	void receiveMessages() { /* ... */ }
