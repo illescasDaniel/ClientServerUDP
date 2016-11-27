@@ -47,7 +47,7 @@ struct Server {
 How to compile
 -----
 
-* Install POCO libraries from [here](https://pocoproject.org/download/index.html) or using [brew](http://brew.sh) with this command:  
+1. Install POCO libraries from [here](https://pocoproject.org/download/index.html) or using [brew](http://brew.sh) with this command:  
 ```
 brew install poco
 ```
