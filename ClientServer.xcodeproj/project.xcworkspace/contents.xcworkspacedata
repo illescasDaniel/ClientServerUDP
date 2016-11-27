@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Poco C++.xcodeproj">
+      location = "self:/Users/Daniel/Documents/Xcode/Poco C++/ClientServer.xcodeproj">
    </FileRef>
 </Workspace>

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		654E58BE1DEA2D4200CF0463 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 654E58BD1DEA2D4200CF0463 /* main.cpp */; };
+		654E58F81DEA485300CF0463 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 654E58F61DEA483100CF0463 /* main.cpp */; };
+		65D2AC431DEA497900A3DFFA /* libPocoNet.46.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D2AC421DEA497900A3DFFA /* libPocoNet.46.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +24,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		654E58BA1DEA2D4200CF0463 /* Poco C++ */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Poco C++"; sourceTree = BUILT_PRODUCTS_DIR; };
-		654E58BD1DEA2D4200CF0463 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		654E58BA1DEA2D4200CF0463 /* ClientServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ClientServer; sourceTree = BUILT_PRODUCTS_DIR; };
+		654E58F51DEA483100CF0463 /* Client.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Client.hpp; sourceTree = "<group>"; };
+		654E58F61DEA483100CF0463 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		654E58F71DEA483100CF0463 /* Server.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Server.hpp; sourceTree = "<group>"; };
+		65D2AC421DEA497900A3DFFA /* libPocoNet.46.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoNet.46.dylib; path = ../../../../../usr/local/Cellar/poco/1.7.6/lib/libPocoNet.46.dylib; sourceTree = "<group>"; };
+		65D2AC481DEA4EB600A3DFFA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		65D2AC4A1DEA560100A3DFFA /* LICENSE_1_0.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE_1_0.txt; sourceTree = "<group>"; };
+		65D2AC4B1DEA5A6D00A3DFFA /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D2AC431DEA497900A3DFFA /* libPocoNet.46.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,33 +49,55 @@
 		654E58B11DEA2D4200CF0463 = {
 			isa = PBXGroup;
 			children = (
-				654E58BC1DEA2D4200CF0463 /* Poco C++ */,
+				65D2AC4A1DEA560100A3DFFA /* LICENSE_1_0.txt */,
+				65D2AC481DEA4EB600A3DFFA /* README.md */,
+				654E58F41DEA483100CF0463 /* ClientServer */,
 				654E58BB1DEA2D4200CF0463 /* Products */,
+				654E58C41DEA2D6A00CF0463 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		654E58BB1DEA2D4200CF0463 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				654E58BA1DEA2D4200CF0463 /* Poco C++ */,
+				654E58BA1DEA2D4200CF0463 /* ClientServer */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		654E58BC1DEA2D4200CF0463 /* Poco C++ */ = {
+		654E58C41DEA2D6A00CF0463 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				654E58BD1DEA2D4200CF0463 /* main.cpp */,
+				65D2AC421DEA497900A3DFFA /* libPocoNet.46.dylib */,
 			);
-			path = "Poco C++";
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		654E58F41DEA483100CF0463 /* ClientServer */ = {
+			isa = PBXGroup;
+			children = (
+				654E58F91DEA485F00CF0463 /* include */,
+				654E58F61DEA483100CF0463 /* main.cpp */,
+				65D2AC4B1DEA5A6D00A3DFFA /* makefile */,
+			);
+			path = ClientServer;
+			sourceTree = "<group>";
+		};
+		654E58F91DEA485F00CF0463 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				654E58F51DEA483100CF0463 /* Client.hpp */,
+				654E58F71DEA483100CF0463 /* Server.hpp */,
+			);
+			name = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		654E58B91DEA2D4200CF0463 /* Poco C++ */ = {
+		654E58B91DEA2D4200CF0463 /* ClientServer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 654E58C11DEA2D4200CF0463 /* Build configuration list for PBXNativeTarget "Poco C++" */;
+			buildConfigurationList = 654E58C11DEA2D4200CF0463 /* Build configuration list for PBXNativeTarget "ClientServer" */;
 			buildPhases = (
 				654E58B61DEA2D4200CF0463 /* Sources */,
 				654E58B71DEA2D4200CF0463 /* Frameworks */,
@@ -77,9 +107,9 @@
 			);
 			dependencies = (
 			);
-			name = "Poco C++";
+			name = ClientServer;
 			productName = "Poco C++";
-			productReference = 654E58BA1DEA2D4200CF0463 /* Poco C++ */;
+			productReference = 654E58BA1DEA2D4200CF0463 /* ClientServer */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +128,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 654E58B51DEA2D4200CF0463 /* Build configuration list for PBXProject "Poco C++" */;
+			buildConfigurationList = 654E58B51DEA2D4200CF0463 /* Build configuration list for PBXProject "ClientServer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -110,7 +140,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				654E58B91DEA2D4200CF0463 /* Poco C++ */,
+				654E58B91DEA2D4200CF0463 /* ClientServer */,
 			);
 		};
 /* End PBXProject section */
@@ -120,7 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				654E58BE1DEA2D4200CF0463 /* main.cpp in Sources */,
+				654E58F81DEA485300CF0463 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +162,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -153,7 +183,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -179,7 +209,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -200,7 +230,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -217,7 +247,16 @@
 		654E58C21DEA2D4200CF0463 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				DEVELOPMENT_TEAM = PRK6268SLD;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/poco/1.7.6/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -225,7 +264,16 @@
 		654E58C31DEA2D4200CF0463 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				DEVELOPMENT_TEAM = PRK6268SLD;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/poco/1.7.6/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -233,7 +281,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		654E58B51DEA2D4200CF0463 /* Build configuration list for PBXProject "Poco C++" */ = {
+		654E58B51DEA2D4200CF0463 /* Build configuration list for PBXProject "ClientServer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				654E58BF1DEA2D4200CF0463 /* Debug */,
@@ -242,13 +290,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		654E58C11DEA2D4200CF0463 /* Build configuration list for PBXNativeTarget "Poco C++" */ = {
+		654E58C11DEA2D4200CF0463 /* Build configuration list for PBXNativeTarget "ClientServer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				654E58C21DEA2D4200CF0463 /* Debug */,
 				654E58C31DEA2D4200CF0463 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
