@@ -79,3 +79,12 @@ Use the included [makefile](https://github.com/illescasDaniel/ClientServer/blob/
 ```bash
 g++ -std=c++1z main.cpp -I /usr/local/include -lPocoNet -L /usr/local/lib
 ```
+
+How to run
+----
+After the program is compiled you can use these program arguments:
+
+**-ip** <ip address>
+**-port** <port number>
+**-size** <buffer size>
+**--debug** (enables the debug mode

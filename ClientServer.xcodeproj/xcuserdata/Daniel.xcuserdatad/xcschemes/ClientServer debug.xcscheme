@@ -63,7 +63,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-ip 127.0.0.1 -port 10000 -size 1024"
+            argument = "-ip 127.0.0.1 -port 10000 -size 1024 --debug"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

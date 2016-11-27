@@ -1,8 +1,8 @@
 ## FLAGS ##
-Libraries = -lPocoNet -L /usr/local/lib
+Libraries = -lPocoNet -lPocoFoundation -L /usr/local/lib
 Headers = -I /usr/local/include
 Sources = main.cpp $(Headers) $(Libraries)
-CompilerFlags = -Os -Wno-deprecated
+CompilerFlags = -O3 -Wno-deprecated
 OutputName = ClientServer
 
 ## TARGETS ##

@@ -21,7 +21,7 @@ public:
 		this->port = port;
 	}
 	
-	void sendMessage() const {
+	void sendMessage() {
 		
 		bool connected = true;
 		SocketAddress socket(IP, port);
@@ -39,9 +39,5 @@ public:
 			}
 			datagram.sendBytes(message.data(), int(message.size()));
 		}
-	}
-	
-	thread sendMessageThread() {
-		return thread( [=] { sendMessage(); } );
 	}
 };

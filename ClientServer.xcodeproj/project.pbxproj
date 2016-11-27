@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		654E58F81DEA485300CF0463 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 654E58F61DEA483100CF0463 /* main.cpp */; };
 		65D2AC431DEA497900A3DFFA /* libPocoNet.46.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D2AC421DEA497900A3DFFA /* libPocoNet.46.dylib */; };
+		65D2AC4D1DEA69E800A3DFFA /* libPocoFoundation.46.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D2AC4C1DEA69E800A3DFFA /* libPocoFoundation.46.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,7 @@
 		65D2AC481DEA4EB600A3DFFA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		65D2AC4A1DEA560100A3DFFA /* LICENSE_1_0.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE_1_0.txt; sourceTree = "<group>"; };
 		65D2AC4B1DEA5A6D00A3DFFA /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		65D2AC4C1DEA69E800A3DFFA /* libPocoFoundation.46.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoFoundation.46.dylib; path = ../../../../../usr/local/Cellar/poco/1.7.6/lib/libPocoFoundation.46.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D2AC4D1DEA69E800A3DFFA /* libPocoFoundation.46.dylib in Frameworks */,
 				65D2AC431DEA497900A3DFFA /* libPocoNet.46.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +71,7 @@
 		654E58C41DEA2D6A00CF0463 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65D2AC4C1DEA69E800A3DFFA /* libPocoFoundation.46.dylib */,
 				65D2AC421DEA497900A3DFFA /* libPocoNet.46.dylib */,
 			);
 			name = Frameworks;

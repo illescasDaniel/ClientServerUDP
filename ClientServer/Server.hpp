@@ -15,6 +15,8 @@ class Server {
 	
 public:
 	
+	static bool debugModeEnabled;
+	
 	Server(): IP("127.0.0.1"), port(10000), bufferSize(1024) { }
 	
 	Server(const IPAddress& IP, const UInt16& port, const int& bufferSize) {
@@ -23,7 +25,7 @@ public:
 		this->bufferSize = bufferSize;
 	}
 	
-	void receiveMessages() const {
+	void receiveMessages() {
 		
 		bool connected = true;
 		
@@ -31,16 +33,16 @@ public:
 		DatagramSocket datagram(socket);
 		char buffer[bufferSize];
 		
-		cout << "Listening...\n" << endl;
+		cout << "Server started\n" << endl;
 		
 		while (connected) {
 			
 			SocketAddress sender;
 			
-			int size = datagram.receiveFrom(buffer, bufferSize - 1, sender);
+			int size = datagram.receiveFrom(buffer, bufferSize, sender);
 			buffer[size] = '\0';
 			
-			cout << sender.toString() << ": " << buffer << endl;
+			cout << (debugModeEnabled ? (sender.toString() + ": ") : "- ") << buffer << endl;
 			
 			if (string(buffer) == "\\end") {
 				string senderIP = sender.host().toString();
@@ -49,8 +51,6 @@ public:
 			}
 		}
 	}
-	
-	thread receiveMessagesThread() {
-		return thread( [=] { receiveMessages(); } );
-	}
 };
+
+bool Server::debugModeEnabled = false;

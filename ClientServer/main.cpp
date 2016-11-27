@@ -1,10 +1,14 @@
 #include "Poco/Net/DatagramSocket.h"
 #include "Poco/Net/SocketAddress.h"
+#include "Poco/Thread.h"
+#include "Poco/RunnableAdapter.h"
 
 #include <string>
 #include <thread>
 #include "Client.hpp"
 #include "Server.hpp"
+
+#include <vector>
 
 int main(int argc, char* argv[]) {
 	
@@ -15,17 +19,22 @@ int main(int argc, char* argv[]) {
 	
 	for (int i = 1; i < argc; ++i) {
 		if (i + 1 <= argc) {
-			if (string(argv[i]) == "--ip") { IP = IPAddress(argv[i+1]); }
-			if (string(argv[i]) == "--port") { port = atoi(argv[i+1]); }
-			if (string(argv[i]) == "--size") { bufferSize = atoi(argv[i+1]); }
+			if (string(argv[i]) == "-ip") { IP = IPAddress(argv[i+1]); }
+			if (string(argv[i]) == "-port") { port = atoi(argv[i+1]); }
+			if (string(argv[i]) == "-size") { bufferSize = atoi(argv[i+1]); }
+			if (string(argv[i]) == "--debug") { Server::debugModeEnabled = true; }
 		}
 	}
 	
-	Client daniel(IP, port);
-	Server myServer(IP, port, bufferSize);
+	Client client(IP, port);
+	Server server(IP, port, bufferSize);
 	
-	thread clientThread(daniel.sendMessageThread());
-	thread serverThread(myServer.receiveMessagesThread());
+	RunnableAdapter<Client> clientRunnable (client, &Client::sendMessage);
+	RunnableAdapter<Server> serverRunnable (server, &Server::receiveMessages);
+	
+	Thread clientThread, serverThread;
+	clientThread.start(clientRunnable);
+	serverThread.start(serverRunnable);
 	
 	clientThread.join();
 	serverThread.join();
