@@ -19,7 +19,7 @@ public:
 	Client(const IPAddress& IP, const UInt16& port) { /* ... */ }
 
 	// Receive user input and send it to the server
-	void sendMessage() const { /* ... */ }
+	void sendMessage() { /* ... */ }
 
 	// Run the above method on a thread
 	thread sendMessageThread() { /* ... */ }
@@ -39,12 +39,14 @@ class Server {
 
 public:
 
+	static bool debugModeEnabled;
+
 	Server(): IP("127.0.0.1"), port(10000), bufferSize(1024) { }
 
 	Server(const IPAddress& IP, const UInt16& port, const int& bufferSize) { /* ... */ }
 
 	// Display messages sent by user/s
-	void receiveMessages() const { /* ... */ }
+	void receiveMessages() { /* ... */ }
 
 	// Run the above method on a thread
 	thread receiveMessagesThread() { /* ... */ }
@@ -64,7 +66,7 @@ How to run
 ----
 After the program is compiled you can use these program arguments:
 
-**-ip** <ip address>
-**-port** <port number>
-**-size** <buffer size>
-**--debug** (enables the debug mode
+**-ip** `<ip address>`  
+**-port** `<port number>`  
+**-size** `<buffer size>`  
+**--debug** (enables the debug mode)
