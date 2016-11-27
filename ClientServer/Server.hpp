@@ -9,7 +9,7 @@ using namespace Poco::Net;
 
 class Server {
 	
-	string IP;
+	IPAddress IP;
 	UInt16 port;
 	int bufferSize;
 	
@@ -17,7 +17,7 @@ public:
 	
 	Server(): IP("127.0.0.1"), port(10000), bufferSize(1024) { }
 	
-	Server(const string& IP, const UInt16& port, const int& bufferSize) {
+	Server(const IPAddress& IP, const UInt16& port, const int& bufferSize) {
 		this->IP = IP;
 		this->port = port;
 		this->bufferSize = bufferSize;

@@ -9,14 +9,14 @@ using namespace Poco::Net;
 
 class Client {
 	
-	string IP;
+	IPAddress IP;
 	UInt16 port;
 	
 public:
 	
 	Client(): IP("127.0.0.1"), port(10000) { }
 	
-	Client(const string& IP, const UInt16& port) {
+	Client(const IPAddress& IP, const UInt16& port) {
 		this->IP = IP;
 		this->port = port;
 	}
@@ -24,10 +24,9 @@ public:
 	void sendMessage() const {
 		
 		bool connected = true;
-		
-		SocketAddress sa(IP, port);
-		DatagramSocket dgs;
-		dgs.connect(sa);
+		SocketAddress socket(IP, port);
+		DatagramSocket datagram;
+		datagram.connect(socket);
 		
 		string message;
 		
@@ -38,7 +37,7 @@ public:
 			if (message == "\\end") {
 				connected = false;
 			}
-			dgs.sendBytes(message.data(), int(message.size()));
+			datagram.sendBytes(message.data(), int(message.size()));
 		}
 	}
 	
