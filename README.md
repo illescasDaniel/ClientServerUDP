@@ -49,7 +49,7 @@ How to compile
 
 Use the included [makefile](https://github.com/illescasDaniel/ClientServer/blob/master/ClientServer/makefile) or run this command:
 ```bash
-g++ -std=c++1z main.cpp -I /usr/local/include -lPocoNet -lPocoFoundation -L /usr/local/lib
+g++ -std=c++1z main.cpp -I /usr/local/include -L /usr/local/lib -lPocoNet -lPocoFoundation
 ```
 
 How to run
