@@ -75,7 +75,7 @@ serverThread.join();
 How to compile
 -----
 
-Use the included makefile or run this command:
+Use the included [makefile](https://github.com/illescasDaniel/ClientServer/blob/master/ClientServer/makefile) or run this command:
 ```bash
 g++ -std=c++1z main.cpp -I /usr/local/include -lPocoNet -L /usr/local/lib
 ```
