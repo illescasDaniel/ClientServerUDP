@@ -9,14 +9,14 @@ Client class
 
 class Client {
 
-	string IP;
+	IPAddress IP;
 	UInt16 port;
 
 public:
 
 	Client(): IP("127.0.0.1"), port(10000) { }
 
-	Client(const string& IP, const UInt16& port) { /* ... */ }
+	Client(const IPAddress& IP, const UInt16& port) { /* ... */ }
 
 	// Receive user input and send it to the server
 	void sendMessage() const { /* ... */ }
@@ -33,7 +33,7 @@ Server class
 
 class Server {
 
-	string IP;
+	IPAddress IP;
 	UInt16 port;
 	int bufferSize;
 
@@ -41,7 +41,7 @@ public:
 
 	Server(): IP("127.0.0.1"), port(10000), bufferSize(1024) { }
 
-	Server(const string& IP, const UInt16& port, const int& bufferSize) { /* ... */ }
+	Server(const IPAddress& IP, const UInt16& port, const int& bufferSize) { /* ... */ }
 
 	// Display messages sent by user/s
 	void receiveMessages() const { /* ... */ }
