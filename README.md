@@ -1,6 +1,6 @@
-# Client Server C++
+# Client Server
 
-Simple Client-server program using POCO C++ libraries (https://pocoproject.org)
+Simple client-server program using POCO C++ libraries (https://pocoproject.org)
 
 
 Client class
