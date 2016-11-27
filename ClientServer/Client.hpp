@@ -11,8 +11,8 @@ struct Client {
 	
 	SocketAddress socket;
 	
-	// By default the client connects to itself {remove}?
-	Client() { socket = SocketAddress("127.0.0.1", 10000); } // SocketAddress("127.0.0.1", 10000);
+	// By default the client connects to itself
+	Client() { socket = SocketAddress("127.0.0.1", 10000); }
 	
 	Client(const IPAddress& IP, const UInt16& port) {
 		socket = SocketAddress(IP, port);
@@ -36,13 +36,8 @@ struct Client {
 		}
 	}
 	
-	string IP() {
-		return socket.host().toString();
-	}
-
-	UInt16 port() {
-		return socket.port();
-	}
+	string IP() { return socket.host().toString(); }
+	UInt16 port() { return socket.port(); }
 	
 	static void sendMessage(const IPAddress& IP, const UInt16& port, const string& message) {
 		SocketAddress socket(IP, port);
