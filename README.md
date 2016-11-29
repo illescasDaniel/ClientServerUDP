@@ -54,7 +54,7 @@ brew install poco
 
 2 - Use the included [makefile](https://github.com/illescasDaniel/ClientServer/blob/master/ClientServer/makefile) or run this command:  
 ```bash
-g++ -std=c++1z main.cpp -I /usr/local/include -L /usr/local/lib -lPocoNet -lPocoFoundation
+g++ -std=c++1z main.cpp -I /usr/local/include -I . -L /usr/local/lib -lPocoNet -lPocoFoundation -Wno-deprecated
 ```
 
 How to run
