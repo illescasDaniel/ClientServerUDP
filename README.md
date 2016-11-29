@@ -52,7 +52,7 @@ How to compile
 brew install poco
 ```
 
-* Use the included [makefile](https://github.com/illescasDaniel/ClientServer/blob/master/ClientServer/makefile) or run this command:  
+2. Use the included [makefile](https://github.com/illescasDaniel/ClientServer/blob/master/ClientServer/makefile) or run this command:  
 ```bash
 g++ -std=c++1z main.cpp -I /usr/local/include -L /usr/local/lib -lPocoNet -lPocoFoundation
 ```
